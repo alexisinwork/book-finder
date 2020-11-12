@@ -2,6 +2,15 @@
 
 About books and Google API
 
+## Details
+
+THis app was developed under the Windows system, so if you are using Unix, please, update this rule in *.eslintrc*:
+```
+"linebreak-style": ["error", "windows"]
+// to this one
+"linebreak-style": ["error", "unix"]
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
