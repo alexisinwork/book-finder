@@ -1,24 +1,56 @@
-import React, { useEffect } from 'react'
-import './App.css'
+import React, { ReactElement, useEffect, useState } from 'react';
+import './App.css';
 
-const url = 'https://gist.githubusercontent.com/sbekrin/40df3ef1ed883a90471aa39fe0a8d9c1/raw/460d11789a2c02c0623f9fa6ad2b0011ddbc114f/recipes-sample.json'
+const url = 'https://www.googleapis.com/books/v1/volumes?q=kiz';
 
-function App() {
+export type Book = {
+  kind: string,
+  id: string,
+  selfLink: string,
+  volumeInfo:{
+    title: string,
+    subtitle: string,
+    authors: Array<string>,
+    publisher: string,
+    publishedDate: string,
+    description: string,
+    industryIdentifiers: Array<{ type: string, identifier: string }>,
+    pageCount: number,
+    categories: Array<string>,
+    maturityRating: string,
+    imageLinks: {
+      smallThumbnail: string,
+      thumbnail: string
+    },
+    language: string,
+    previewLink: string,
+  }
+};
+
+export type BookAPI = {
+  kind: 'books#volumes',
+  totalItems: number,
+  items: Array<Book>
+};
+
+const App = (): ReactElement => {
+  const [books, setBooks] = useState<Array<Book>>([]);
+
   useEffect(() => {
     async function getRecipes() {
       fetch(url)
         .then((res) => res.json())
-        // .then((res) =>)
+        .then((res: BookAPI) => setBooks(res.items));
     }
 
-    getRecipes()
-  }, [])
+    getRecipes();
+  }, []);
 
   return (
     <div className="App">
-      
+      {books && books.length}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
