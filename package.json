@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -12,6 +14,9 @@
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
+    "antd": "^4.15.1",
+    "craco": "^0.0.3",
+    "craco-less": "^1.17.1",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "react": "^17.0.1",
@@ -21,11 +26,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "lint": "eslint . --ext .ts,.tsx",
-    "eject": "react-scripts eject"
+    "start": "npx craco start",
+    "build": "npx craco build",
+    "test": "npx craco test",
+    "lint": "npx eslint . --ext .ts,.tsx",
+    "eject": "npx craco eject"
   },
   "devDependencies": {
     "@types/uuid": "^8.3.0",
